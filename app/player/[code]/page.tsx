@@ -10,7 +10,7 @@ export default function PlayerCodePage() {
   const [notes, setNotes] = useState('')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
-  const rawCode = params?.code || ''
+  const rawCode = Array.isArray(params?.code) ? params?.code[0] : params?.code || ''
   const code = decodeURIComponent(rawCode).trim()
 
   useEffect(() => {

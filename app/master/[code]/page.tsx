@@ -12,7 +12,7 @@ export default function MasterCodePage() {
   const [generatedCode, setGeneratedCode] = useState<string | null>(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(true)
-  const rawCode = params?.code || ''
+  const rawCode = Array.isArray(params?.code) ? params?.code[0] : params?.code || ''
   const code = decodeURIComponent(rawCode).trim()
 
   async function generatePlayer(e: React.FormEvent<HTMLFormElement>) {
