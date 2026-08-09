@@ -1,15 +1,8 @@
-import { BlogPosts } from 'app/components/posts'
-
-export const metadata = {
-  title: 'Blog',
-  description: 'Read my blog.',
-}
-
-export default function Page() {
+export default function BlogIndex() {
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">My Blog</h1>
-      <BlogPosts />
+      <h1 className="text-2xl font-semibold mb-4">Blog</h1>
+      <p className="text-sm text-gray-600">Nenhum post disponível.</p>
     </section>
   )
 }
