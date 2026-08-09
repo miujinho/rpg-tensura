@@ -10,8 +10,8 @@ function makeCode() {
 
 export async function POST(req: Request) {
   const body = await req.json().catch(() => ({}))
-  const name = (body && body.name) || 'Mestre'
-  const providedCode = body?.code
+  const name = ((body && body.name) || 'Mestre').trim()
+  const providedCode = (body?.code || '').trim()
 
   const SUPABASE_URL = process.env.SUPABASE_URL
   const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY

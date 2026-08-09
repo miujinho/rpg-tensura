@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js'
 
 export async function POST(req: Request) {
   const body = await req.json().catch(() => ({}))
-  const code = (body && body.code) || ''
+  const code = ((body && body.code) || '').trim()
   if (!code) return NextResponse.json({ error: 'código obrigatório' }, { status: 400 })
 
   return validateCode(code)
@@ -11,7 +11,7 @@ export async function POST(req: Request) {
 
 export async function GET(req: Request) {
   const url = new URL(req.url)
-  const code = url.searchParams.get('code') || ''
+  const code = (url.searchParams.get('code') || '').trim()
   if (!code) return NextResponse.json({ error: 'código obrigatório' }, { status: 400 })
 
   return validateCode(code)
